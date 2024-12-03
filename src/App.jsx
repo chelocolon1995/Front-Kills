@@ -15,10 +15,10 @@ const App = () => {
           <BrowserRouter>
           <Navbar />
             <Routes>
-              <Route path="/" element={<Home  greeting="Bienvenidos - BURGer "/>} />
+              <Route path="/Front-Kills" element={<Home  greeting="Bienvenidos - BURGer "/>} />
               <Route path="/elites" element={<Elites  greeting="Bienvenidos - BURGer "/>} />
-              <Route path="/upload" element={<Upload  greeting="Bienvenidos - BURGer "/>} />
-              <Route path="/:killsday" element={<Killsday greeting="Menu - " />} />
+              <Route path="/Front-Kills/upload" element={<Upload  greeting="Bienvenidos - BURGer "/>} />
+              <Route path="/Front-Kills/:killsday" element={<Killsday greeting="Menu - " />} />
               <Route path="*" element={<h1>NO ENCONTRADO</h1>} />
             </Routes>
           </BrowserRouter>
