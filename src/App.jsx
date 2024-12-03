@@ -7,21 +7,21 @@ import Elites from "./pages/Elites";
 import Killsday from "./pages/killsday"
 
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter , BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <>
-          <BrowserRouter>
+          <HashRouter>
           <Navbar />
             <Routes>
-              <Route path="/Front-Kills" element={<Home  greeting="Bienvenidos - BURGer "/>} />
+              <Route path="/" element={<Home  greeting="Bienvenidos - BURGer "/>} />
               <Route path="/elites" element={<Elites  greeting="Bienvenidos - BURGer "/>} />
-              <Route path="/Front-Kills/upload" element={<Upload  greeting="Bienvenidos - BURGer "/>} />
-              <Route path="/Front-Kills/:killsday" element={<Killsday greeting="Menu - " />} />
+              <Route path="/upload" element={<Upload  greeting="Bienvenidos - BURGer "/>} />
+              <Route path="/:killsday" element={<Killsday greeting="Menu - " />} />
               <Route path="*" element={<h1>NO ENCONTRADO</h1>} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
     </>
   );
 };
