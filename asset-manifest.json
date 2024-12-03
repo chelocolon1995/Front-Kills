@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Front-Kills/static/css/main.e18147bf.css",
+    "main.js": "/Front-Kills/static/js/main.07ad0075.js",
+    "index.html": "/Front-Kills/index.html",
+    "main.e18147bf.css.map": "/Front-Kills/static/css/main.e18147bf.css.map",
+    "main.07ad0075.js.map": "/Front-Kills/static/js/main.07ad0075.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e18147bf.css",
+    "static/js/main.07ad0075.js"
+  ]
+}
