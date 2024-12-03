@@ -2,12 +2,14 @@
   "name": "csv-data",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://chelocolon1995.github.io/Front-Kills",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.8",
     "bootstrap": "^5.3.3",
+    "gh-pages": "^6.2.0",
     "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.6",
@@ -19,6 +21,8 @@
     "xlsx": "^0.18.5"
   },
   "scripts": {
+    "predeploy" :"npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
