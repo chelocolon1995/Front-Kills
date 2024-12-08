@@ -14,6 +14,10 @@ const Killsday = () => {
     const [individualDeaths, setIndividualDeaths] = useState([]);
     const [killerMurdered, setKillerMuerdered] = useState(0);
     const [supportsMurdered, setSupportsMuerdered] = useState(0);
+    const [countkills, setCountkills] = useState([]);
+    const [countdeaths, setCountdeaths] = useState([]);
+    const [countTotalKills, setTotalKills] = useState(0);
+    const [countTotalDeaths, setTotalDeaths] = useState(0);
 
     const ADICCION = [
         "Zoel",
@@ -24,7 +28,9 @@ const Killsday = () => {
         "LOBlTO",
         "INV3RN4",
         "ESKANOR",
-        "JillML"
+        "JillML",
+        "NielAndrew",
+        "Hopper"
     ]
 
     const LEGENDS = [
@@ -44,7 +50,8 @@ const Killsday = () => {
         "NyxWhite",
         "Jezebeth",
         "xxCHyKyxx",
-        "AssauIt"
+        "AssauIt",
+        "CardiaKo",
     ]
 
     useEffect(() => {
@@ -60,17 +67,30 @@ const Killsday = () => {
                     .map(([MUERTE, count]) => ({ MUERTE, count }))
                     .sort((a, b) => b.count - a.count);
 
+                let conteoDeaths = 0
+                finalArray2.forEach((i) => {
+                    conteoDeaths += i.count
+                    console.log(conteoDeaths)
+                })
+
+                setTotalDeaths(conteoDeaths)
                 setTopDeaths(finalArray2)
 
                 const countsByCs = {};
                 filter.forEach(({ KILLER }) => {
                     countsByCs[KILLER] = (countsByCs[KILLER] || 0) + 1;
                 });
+
                 const finalArray = Object.entries(countsByCs)
                     .map(([KILLER, count]) => ({ KILLER, count }))
                     .sort((a, b) => b.count - a.count);
+
+                let conteoKills = 0
+                finalArray.forEach((i) => {
+                    conteoKills += i.count
+                })
+                setTotalKills(conteoKills)
                 setTopkills(finalArray)
-                    ;
             })
             .catch(error => console.error(error));
     }, [killsday]);
@@ -94,6 +114,11 @@ const Killsday = () => {
         });
 
         const sort = Conteo.sort((a, b) => b.COUNT - a.COUNT)
+        let conteoKills = 0
+        sort.forEach((i) => {
+            conteoKills += i.COUNT
+        })
+        setCountkills(conteoKills)
         setIndividualKills(sort)
 
         const items2 = data.filter(item => item.MUERTE === event.target.value);
@@ -111,6 +136,12 @@ const Killsday = () => {
             }
         });
         const sort2 = Conteo2.sort((a, b) => b.COUNT - a.COUNT)
+
+        let conteoDeaths = 0
+        sort2.forEach((i) => {
+            conteoDeaths += i.COUNT
+        })
+        setCountdeaths(conteoDeaths)
         setIndividualDeaths(sort2)
 
         sort.forEach((kill) => {
@@ -132,6 +163,16 @@ const Killsday = () => {
         } else {
             return <td className="clan">{killer}</td>
         }
+
+    }
+
+    const Adiccion2 = (killer, index) => {
+        const i = ADICCION.includes(killer)
+        if (i === false) {
+            return <option key={index} value={killer}>{killer}</option>
+        } else {
+            return <option className="clan" key={index} value={killer}>{killer}</option>
+        }
     }
 
     return (
@@ -139,6 +180,7 @@ const Killsday = () => {
             <div className="d-flex justify-content-around">
                 <div className="tabla">
                     <h1>Top Kills</h1>
+                    <h4>Total : {countTotalKills} </h4>
                     <Table bordered hover variant="dark" size="sm">
                         <thead>
                             <tr>
@@ -160,6 +202,7 @@ const Killsday = () => {
                 </div>
                 <div className="tabla">
                     <h1>Top Deaths</h1>
+                    <h4>Total : {countTotalDeaths}</h4>
                     <Table bordered hover variant="dark" size="sm">
                         <thead>
                             <tr>
@@ -185,7 +228,7 @@ const Killsday = () => {
                             onChange={handleChange} className='dropdown'>
                             <option>Seleccione Killer</option>
                             {topkills.map((item, index) => (
-                                <option key={index} value={item.KILLER}>{item.KILLER}</option>
+                                Adiccion2(item.KILLER, index)
                             ))}
                         </select>
                     </div>
@@ -215,6 +258,10 @@ const Killsday = () => {
                                     <td>{item.COUNT}</td>
                                 </tr>
                             ))}
+                            <tr className="total" >
+                                <th>TOTAL </th>
+                                <th >{countkills}</th>
+                            </tr>
                         </tbody>
                     </Table>
                 </div>
@@ -234,6 +281,10 @@ const Killsday = () => {
                                     <td>{item.COUNT}</td>
                                 </tr>
                             ))}
+                            <tr className="total">
+                                <th>TOTAL </th>
+                                <th >{countdeaths}</th>
+                            </tr>
                         </tbody>
                     </Table>
                 </div>

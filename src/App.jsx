@@ -7,7 +7,7 @@ import Elites from "./pages/Elites";
 import Killsday from "./pages/killsday"
 
 
-import { HashRouter , BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter , Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
@@ -15,10 +15,10 @@ const App = () => {
           <HashRouter>
           <Navbar />
             <Routes>
-              <Route path="/" element={<Home  greeting="Bienvenidos - BURGer "/>} />
-              <Route path="/elites" element={<Elites  greeting="Bienvenidos - BURGer "/>} />
-              <Route path="/upload" element={<Upload  greeting="Bienvenidos - BURGer "/>} />
-              <Route path="/:killsday" element={<Killsday greeting="Menu - " />} />
+              <Route path="/" element={<Home/>} />
+              <Route path="/elites" element={<Elites/>} />
+              <Route path="/upload" element={<Upload/>} />
+              <Route path="/:killsday" element={<Killsday/>} />
               <Route path="*" element={<h1>NO ENCONTRADO</h1>} />
             </Routes>
           </HashRouter>
