@@ -202,7 +202,7 @@ const Killsday = () => {
                 </div>
                 <div className="tabla">
                     <h1>Top Deaths</h1>
-                    <h4>Total : {countTotalDeaths}</h4>
+                    <h4>-</h4>
                     <Table bordered hover variant="dark" size="sm">
                         <thead>
                             <tr>
