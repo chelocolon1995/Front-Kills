@@ -14,7 +14,7 @@ const Upload = ({ greeting }) => {
             const sheetName = workbook.SheetNames[0];
             const sheet = workbook.Sheets[sheetName];
             const parsedData = XLSX.utils.sheet_to_json(sheet);
-            let someUsers = parsedData.filter(item => item.SERVER === "[GP-1]" && (item.MAPA === "Volcano" || item.MAPA === "Bloody" || item.MAPA === "Tormenta" || item.MAPA === "**"));
+            let someUsers = parsedData.filter(item => item.SERVER === "[GP-1]" && (item.MAPA === "Volcano" || item.MAPA === "Bloody" || item.MAPA === "Tormenta" || item.MAPA === "Twisted"));
             const filter = someUsers.map((item) => {
                 return {
                     KILLER: item.KILLER,

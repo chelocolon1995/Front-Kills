@@ -17,9 +17,10 @@ const Killsday = () => {
     const [countkills, setCountkills] = useState([]);
     const [countdeaths, setCountdeaths] = useState([]);
     const [countTotalKills, setTotalKills] = useState(0);
-    const [countTotalDeaths, setTotalDeaths] = useState(0);
+    const [ratio, setRatio] = useState(0);
 
     const ADICCION = [
+        "SONNI",
         "Zoel",
         "Diana6",
         "navajita",
@@ -27,19 +28,18 @@ const Killsday = () => {
         "CiriR",
         "LOBlTO",
         "INV3RN4",
-        "ESKANOR",
         "JillML",
         "NielAndrew",
-        "Hopper"
+        "Hopper",
+        "INVERN4",
+        "ADICCION"
     ]
 
     const LEGENDS = [
         "ShaoKhan",
         "Slayme",
         "NightWind",
-        "ChioAR",
         "Dkaniel",
-        "PVPGrow",
         "Hiedra",
         "ChaPoGL",
         "iMrAppleBK",
@@ -52,6 +52,28 @@ const Killsday = () => {
         "xxCHyKyxx",
         "AssauIt",
         "CardiaKo",
+        "Zurvan",
+        "IIJhorgiII",
+        "R1SE",
+        "Mizuno",
+        "lmBlade",
+        "Little",
+        "Oregon",
+        "CrSiete",
+        "Acqua",
+        "Spartakus",
+        "ManuMG",
+        "iJenz",
+        "HomoKiller",
+        "Sparr0w1",
+        "Jeena",
+        "IIBOKU",
+        "IKLokito",
+        "Spectrux",
+        "MGJonias",
+        "NickVM",
+        "Ryuma",
+        "Cardi4Ka",
     ]
 
     useEffect(() => {
@@ -67,13 +89,6 @@ const Killsday = () => {
                     .map(([MUERTE, count]) => ({ MUERTE, count }))
                     .sort((a, b) => b.count - a.count);
 
-                let conteoDeaths = 0
-                finalArray2.forEach((i) => {
-                    conteoDeaths += i.count
-                    console.log(conteoDeaths)
-                })
-
-                setTotalDeaths(conteoDeaths)
                 setTopDeaths(finalArray2)
 
                 const countsByCs = {};
@@ -154,6 +169,9 @@ const Killsday = () => {
         })
         setKillerMuerdered(conteoKillers)
         setSupportsMuerdered(conteoSupport)
+
+        let ratio = conteoKills / conteoDeaths
+        setRatio(ratio)
     }
 
     const Adiccion = (killer) => {
@@ -233,6 +251,12 @@ const Killsday = () => {
                         </select>
                     </div>
                     <br />
+                    <div>
+                        <h3>Kills : 20 Muertes : 30</h3>
+                    </div>
+                    <div>
+                        <h4>Ratio : {ratio}</h4>
+                    </div>
                     <div>
                         <div>
                             <h4>Killers Asesinados :  {killerMurdered}</h4>
